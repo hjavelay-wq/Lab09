@@ -1,10 +1,8 @@
-package com.ucv.labt09;
+package com.ucv.lab09.model;
 
 import java.io.Serializable;
 
-public abstract class Estudiante implements Serializable, IDescuentos {
-
-    private static final long serialVersionUID = 1L;
+public abstract class Estudiante implements Serializable, IConstantes {
 
     private String codigo;
     private String apellidos;
@@ -20,7 +18,6 @@ public abstract class Estudiante implements Serializable, IDescuentos {
         this.semestreIngreso = semestreIngreso;
     }
 
-    // Getters y Setters
     public String getCodigo() { return codigo; }
     public void setCodigo(String codigo) { this.codigo = codigo; }
 
@@ -33,11 +30,9 @@ public abstract class Estudiante implements Serializable, IDescuentos {
     public String getSemestreIngreso() { return semestreIngreso; }
     public void setSemestreIngreso(String s) { this.semestreIngreso = s; }
 
-    // Métodos abstractos
     public abstract double pagoParcialPension();
     public abstract double descuentos();
 
-    // Método concreto
     public double pagoFinalPension() {
         return pagoParcialPension() - descuentos();
     }

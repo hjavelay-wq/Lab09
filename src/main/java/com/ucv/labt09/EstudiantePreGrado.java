@@ -1,4 +1,4 @@
-package com.ucv.labt09;
+package com.ucv.labt09.model;
 
 public class EstudiantePreGrado extends Estudiante {
 
