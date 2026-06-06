@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.ucv.labt09.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ucv.labt09.HelloController"
+      spacing="8" style="-fx-padding: 10;">
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <Label text="Registro de Estudiantes"/>
+
+    <Label text="Nombres:"/>
+    <TextField fx:id="txtNombres"/>
+
+    <Label text="Semestre:"/>
+    <ComboBox fx:id="cmbSemestre" prefWidth="120"/>
+
+    <Label text="Tipo:"/>
+    <HBox spacing="10">
+        <RadioButton fx:id="rbPreGrado" text="Pre Grado">
+            <toggleGroup><ToggleGroup fx:id="tipoEstudiante"/></toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="rbPostGrado" text="Post Grado"
+                     toggleGroup="$tipoEstudiante"/>
+    </HBox>
+
+    <Button text="Registrar" onAction="#onRegistrar"/>
+    <Button text="Post Grado (en construccion)" onAction="#onPostGrado"/>
+
+    <Label text="Lista:"/>
+    <TableView fx:id="tablaEstudiantes" prefHeight="150">
+        <columns>
+            <TableColumn fx:id="colCodigo" text="Codigo"  prefWidth="100"/>
+            <TableColumn fx:id="colNombre" text="Nombre"  prefWidth="180"/>
+        </columns>
+    </TableView>
+
 </VBox>
